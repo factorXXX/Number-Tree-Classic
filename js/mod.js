@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The Number Tree Classic",
 	id: "factor",
-	author: "3^3=7",
+	author: "3pow3",
 	pointsName:"points",
 	modFiles: ["Zero.js","X.js", "tree.js","Number.js","NegativeNumber.js","UpgradeFactor.js","Factor.js","Infinity.js","Achievement.js","FactorShift.js","InfinityPoint.js","MathematicsSymbol.js","EternityPoints.js","Ordinal.js","Mathematician.js","Shape.js"],
 
