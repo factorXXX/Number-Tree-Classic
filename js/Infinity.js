@@ -94,11 +94,11 @@ addLayer("I", {
             done() { return player.I.points.gte(28) }
         },
         69: {
-            requirementDescription: "69 Infinity (NICE)",
+            requirementDescription: "68 Infinity",
             effectDescription() {
               if(player.X.points.gte(1))    return "Infinity boost Negative Numbers gain."
               else  return "Infinity boost Negative Numbers gain and auto buy factor and number buyable."},
-            done() { return player.I.points.gte(69) }
+            done() { return player.I.points.gte(68) }
         },
         300: {
           requirementDescription: "300 Infinity",
@@ -410,47 +410,5 @@ addLayer("T", {
     player.T.timem=player.T.time.sub(player.T.timed.times(86400)).sub(player.T.timeh.times(3600)).div(60).floor()
     player.T.times=player.T.time.sub(player.T.timed.times(86400)).sub(player.T.timeh.times(3600)).sub(player.T.timem.times(60)).floor()
     player.T.time2=player.T.timed+"d "+player.T.timeh+"h "+player.T.timem+"m "+player.T.times+"s"
-  }
-})
-addLayer("G", {
-	startData() { return {
-    unlocked: true,
-    time:new Decimal(0),
-   guide:"hi",
-   show:false,
-  }},
-	color: "#999900",
-	symbol: "G",
-	row: "side",
-	position: 20,
-	layerShown() { return true },
-	tooltip(){return "Guide"},
-    tabFormat: [
-		"blank", "blank", "blank",
-    ["display-text",function(){
-      if(player.G.show) return player.G.guide
-    }],
-    "blank","blank","blank","clickables",
-	],
-  clickables:{       
-    11:{
-        display() {
-           return "Show guide"
-        },
-        onClick(){player.G.show=true},
-        canClick(){return true}
-    }},
-  update(diff){
-   if(player.tab=="G"==false) player.G.show=false
-   if(isEndgame()) player.G.guide="Why you need this???"
-   else if(player.X.points.gte(1)&&player.Z.points.gte(6)) player.G.guide="Try to make integers are all 2."
-   else if(player.X.points.gte(1)&&player.Z.points.gte(1)&&player.Z.points.lte(5)) player.G.guide="Grind for Zero."
-   else if(player.X.points.gte(1)&&player.FS.points.gte(1)) player.G.guide="Grind for Prime factor point, when you unlock a challenge, you should try to do it."
-   else if(player.X.points.gte(1)&&player.I.points.gte(1)) player.G.guide="Grind for Infinity, upgrade point and challenge point. Try to explore challenge. (Challenge may not in other)"
-   else if(player.X.points.gte(1)) player.G.guide="Just like the game before 1 ???, grind all resources."
-   else if(player.E.meta.gte(1)) player.G.guide="Grind all type of point."
-   else if(player.S.points.gte(4)) player.G.guide="Do omega for a lot of times. You can see meta tab in E layer when you reach 1.79e308 game speed."
-   else if(player.S.points.gte(1)) player.G.guide="Grind shape."
-   else player.G.guide="."
   }
 })
